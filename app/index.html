@@ -2,40 +2,107 @@
 <!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="tidalApp" class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
+  <title>Tidal Assignment</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
-  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
-<body>
-  <ul class="menu">
-    <li><a href="#!/view1">view1</a></li>
-    <li><a href="#!/view2">view2</a></li>
-  </ul>
 
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
+<body ng-controller="mainController as ctrl">
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img alt="Brand" src="img/logo.png">
+        </a>
+        <div class="nav navbar-nav navbar-right">
+        <div class="dropdown">
+          <button type="button" class="navbar-toggle dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+         </button>
+         <ul class="dropdown-menu">
+           <li><a href="#">KANYE</a></li>
+           <li><a href="#">WEST</a></li>
+           <li><a href="#">IS</a></li>
+           <li><a href="#">GOD</a></li>
+         </ul>
+        </div>  
+      </div>
+      </div>         
+    </div>
+  </nav>
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="{$index}" ng-class="{active:$first}" ng-class='{active:$first}'  ng-repeat="feature in features track by $index">        
+      </li>
 
-  <div ng-view></div>
+    </ol>
+  
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      
+      <div class="item" ng-class='{active:$first}' ng-repeat="feature in features track by $index">
+        <album-feature name="feature.name" img="feature.img" txt="feature.txt"  verb="feature.verb"></album-feature>
+      </div>
+  
+    </div>
+    
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div>  
 
-  <div>Angular seed app: v<span app-version></span></div>
-
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
+  <div class="mountain-seperator">
+  </div>
+  
+  <pop-Up-Section id="tuna"></pop-Up-Section>
+  <footer>
+    <div class="upper-footer-div">
+      <div class="device-icons">  
+        <i class="fa fa-apple"></i>
+        <i class="fa fa-android"></i> 
+        <i class="fa fa-wifi"></i>
+        <i class="fa fa-desktop"></i> 
+      </div>
+      <p>
+        Seamless listening across mobile, tablet, desktop and network players. Enjoy lossless music streaming on Apple devices from iPhone, iPad and iPod to Mac, as well as on PC and Android system.  Plus integration in a wide range of high fidelity network players.hhb
+      </p>
+    </div>
+    <div class="try-now">
+      TRY TIDAL NOW
+    </div>
+    <div class="social">
+       <i class="fa fa-facebook"></i>
+       <i class="fa fa-twitter"></i> 
+       <i class="fa fa-google-plus"></i>
+    </div>
+    <p>2015 @TIDAL</p>
+  </footer>
+    
+</div> 
+ 
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/waypoints/lib/noframework.waypoints.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="app.js"></script>
-  <script src="view1/view1.js"></script>
-  <script src="view2/view2.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
